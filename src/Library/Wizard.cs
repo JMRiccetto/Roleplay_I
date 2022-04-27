@@ -51,7 +51,7 @@ namespace Roleplay
 
         public Wizard(string aName)
         {
-            aName = name;
+            name = aName;
         }
 
         public void ChangeCape(Cape cape)
