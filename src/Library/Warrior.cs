@@ -28,7 +28,6 @@ namespace Roleplay
         {   
             get
             {   
-                // Si el personaje tiene el item defensivo equipado, la salud es igual a la vida del personaje + la defensa del item. 
                 return this.health;
             }
 
@@ -121,11 +120,14 @@ namespace Roleplay
         }
 
          public void attackWizard(Wizard wizard)
-        {
-            if (wizard.Health > 0)
+        {      
+            if (wizard.SpellBook.spell != null)
             {
-                wizard.Health -= this.GetAttack(); 
-            }
+                if ((wizard.Health > 0) && (this.GetAttack() > wizard.SpellBook.spell.DefenseValue))
+                {                  
+                    wizard.Health -= (this.GetAttack() - wizard.SpellBook.spell.DefenseValue);                    
+                }
+            }    
         }
     }
 }

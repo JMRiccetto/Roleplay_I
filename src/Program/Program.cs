@@ -39,7 +39,6 @@ namespace Roleplay
             Console.WriteLine("stats despues de ser atacado");
             Console.WriteLine(warrior1.Health);
             
-            
         }
     }
 }
