@@ -25,7 +25,7 @@ namespace Roleplay
             }
         }
 
-        public int defenseValue;
+        private int defenseValue;
 
         public int DefenseValue
         {
