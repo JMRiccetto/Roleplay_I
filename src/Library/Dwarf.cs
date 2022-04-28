@@ -58,13 +58,13 @@ namespace Roleplay
         public Shield Shield;
 
         // Cambiar item ofensivo
-        public void ChangeSword(Hammer hammer)
+        public void ChangeHammer(Hammer hammer)
         {
             this.Hammer = hammer;
         }
 
         // Remover item ofensivo
-        public void RemoveSword()
+        public void RemoveHammer()
         {
             if (this.Hammer != null)
             {
@@ -73,13 +73,13 @@ namespace Roleplay
         }
 
         // Cambiar item defensivo
-        public void ChangeBreastplate(Shield shield)
+        public void ChangeShield(Shield shield)
         {
             this.Shield = shield;
         }
 
         // Remover item defensivo
-        public void RemoveBreastplate()
+        public void RemoveShield()
         {   
             if (this.Shield != null)
             {
