@@ -2,7 +2,7 @@ using System;
 
 namespace Roleplay
 {
-    public class Cape
+    public class Breastplate
     {
         private int attackValue;
 
@@ -46,7 +46,7 @@ namespace Roleplay
             }
         }
 
-        public Cape(int attack, int defense)
+        public Breastplate(int attack, int defense)
         {
             this.attackValue = attack;
             this.defenseValue = defense;

@@ -51,7 +51,7 @@ namespace Roleplay
 
         public Wizard(string aName)
         {
-            aName = name;
+            this.name = aName;
         }
 
         public void ChangeCape(Cape cape)
@@ -71,7 +71,7 @@ namespace Roleplay
 
         public void DamageReceived(int damage)
         {
-            int totalDefense = this.Cape.defenseValue + this.SpellBook.spell.DefenseValue;
+            int totalDefense = this.Cape.DefenseValue + this.SpellBook.spell.DefenseValue;
             if( totalDefense < damage)
             {
                 damage -= totalDefense;
