@@ -119,13 +119,24 @@ namespace Roleplay
             }    
         }
 
-         public void attackWizard(Wizard wizard)
+        public void attackWizard(Wizard wizard)
         {      
             if (wizard.SpellBook.spell != null)
             {
                 if ((wizard.Health > 0) && (this.GetAttack() > wizard.SpellBook.spell.DefenseValue))
                 {                  
                     wizard.Health -= (this.GetAttack() - wizard.SpellBook.spell.DefenseValue);                    
+                }
+            }    
+        }
+
+        public void attackElve(Elve elve)
+        {      
+            if (elve.boots != null)
+            {
+                if ((elve.Health > 0) && (this.GetAttack() > elve.boots.DefenseValue))
+                {                  
+                    elve.Health -= (this.GetAttack() - elve.boots.DefenseValue);                    
                 }
             }    
         }
