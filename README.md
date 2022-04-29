@@ -16,7 +16,7 @@ Existen diferentes tipos de personajes provenientes de distintas especies.
 
 Los magos, también conocidos como Istari, tienen el dominio de la mágia, que provee capacidades de ataque y de defensa. La mágia es innata a ellos, aunque pueden adquirir más mediente el estudio de la asignatura, y mediante elementos que la potencian (por ejemplo, un [bastón mágico](https://ringsdb.com/bundles/cards/142008.png)).
 
-### [Elfos _[Elves]_](https://lotr.fandom.com/wiki/Elves)
+### [Elfos _[Elves]_](https://lotr.fandom.com/wiki/Elfs)
 
 Los elfos son criaturas supernaturales que también poseen características mágicas, y en general son conocidos por ayudar a los demás.
 

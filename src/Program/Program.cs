@@ -7,7 +7,7 @@ namespace Roleplay
     {
         static void Main(string[] args)
         {
-            Elve Fernando = new Elve("Fernando");
+            Elf Fernando = new Elf("Fernando");
             
             Boots BotasMagicas = new Boots(0,15);
             Bow ArcoMagico = new Bow(30,0);
