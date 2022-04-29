@@ -116,18 +116,26 @@ namespace Roleplay
                 {                  
                     warrior.Health -= (this.GetAttack() - warrior.Breastplate.DefenseValue);                    
                 }
+            }
+            else
+            {
+                warrior.Health -= this.GetAttack(); 
             }    
         }
 
         public void attackWizard(Wizard wizard)
         {      
-            if (wizard.SpellBook.spell != null)
+            if (wizard.Cape != null)
             {
                 if ((wizard.Health > 0) && (this.GetAttack() > wizard.Cape.DefenseValue))
                 {                  
                     wizard.Health -= (this.GetAttack() - wizard.Cape.DefenseValue);                    
                 }
-            }    
+            }
+            else
+            {
+                wizard.Health -= this.GetAttack(); 
+            }      
         }
 
         public void attackElf(Elf elf)
@@ -138,7 +146,11 @@ namespace Roleplay
                 {                  
                     elf.Health -= (this.GetAttack() - elf.Boots.DefenseValue);                    
                 }
-            }    
+            }
+            else
+            {
+                elf.Health -= this.GetAttack(); 
+            }     
         }
 
         public void attackDwarf(Dwarf dwarf)
@@ -149,7 +161,11 @@ namespace Roleplay
                 {                  
                     dwarf.Health -= (this.GetAttack() - dwarf.Shield.DefenseValue);                    
                 }
-            } 
+            }
+            else
+            {
+                dwarf.Health -= this.GetAttack(); 
+            }  
         }
 
         public void Heal()
