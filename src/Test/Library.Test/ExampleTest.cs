@@ -264,5 +264,126 @@ namespace Test.Library
             int actual = wizard.Health;
             Assert.AreEqual(expected, actual);
         }
-    }
+
+
+        // attackElf method tests 
+
+
+        [Test]
+        
+        public void attackElf1()    
+        {
+            Warrior warrior = new Warrior("Ragnar");
+            Elf elf = new Elf("Dobby");
+            warrior.attackWizard(elf);
+            int expected = 75;
+            int actual = elf.Health;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+
+        public void attackElf2()    
+        {
+            Warrior warrior = new Warrior("Ragnar");
+            Elf elf = new Elf("Dobby");
+            Sword sword = new Sword(20,0);
+            warrior.ChangeSword(sword);
+            warrior.attackElf(elf);
+            int expected = 45;
+            int actual = elf.Health;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+
+        public void attackElf3()    
+        {
+            Warrior warrior = new Warrior("Ragnar");
+            Elf elf = new Elf("Dobby");
+            Boots boots = new Boots(0,15);
+            elf.ChangeBoots(boots);
+            warrior.attackElf(elf);
+            int expected = 80;
+            int actual = elf.Health;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+
+        public void attackElf4()    
+        {
+            Warrior warrior = new Warrior("Ragnar");
+            Elf elf = new Elf("Dobby");
+            Sword sword = new Sword(25,0);
+            Boots boots = new Boots(0,15);
+            warrior.ChangeSword(sword);
+            elf.ChangeBoots(boots);
+            warrior.attackElf(elf);
+            int expected = 55;
+            int actual = elf.Health;
+            Assert.AreEqual(expected, actual);
+        }
+
+
+        // attackDwarf
+
+
+        [Test]
+        
+        public void attackDwarf1()    
+        {
+            Warrior warrior = new Warrior("Ragnar");
+            Dwarf dwarf = new Dwarf("Grumpy");
+            warrior.attackDwarf(dwarf);
+            int expected = 95;
+            int actual = dwarf.Health;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+
+        public void attackDwarf2()    
+        {
+            Warrior warrior = new Warrior("Ragnar");
+            Dwarf dwarf = new Dwarf("Grumpy");
+            Sword sword = new Sword(20,0);
+            warrior.ChangeSword(sword);
+            warrior.attackDwarf(dwarf);
+            int expected = 75;
+            int actual = dwarf.Health;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+
+        public void attackDwarf3()    
+        {
+            Warrior warrior = new Warrior("Ragnar");
+            Dwarf dwarf = new Dwarf("Grumpy");
+            Shield shield = new Shield(0,15)
+            elf.ChangeSield(shield);
+            warrior.attackDwarf(dwarf);
+            int expected = 110;
+            int actual = dwarf.Health;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+
+        public void attackDwarf4()    
+        {
+            Warrior warrior = new Warrior("Ragnar");
+            Dwarf dwarf = new Dwarf("Grumpy");
+            Sword sword = new Sword(25,0);
+            Boots boots = new Boots(0,15);
+            warrior.ChangeSword(sword);
+            elf.ChangeBoots(boots);
+            warrior.attackDwarf(dwarf);
+            int expected = 85;
+            int actual = dwarf.Health;
+            Assert.AreEqual(expected, actual);
+        }
+
+    }   
 }

@@ -130,15 +130,26 @@ namespace Roleplay
             }    
         }
 
-        public void attackElve(Elve elve)
+        public void attackElf(Elf elf)
         {      
-            if (elve.boots != null)
+            if (elf.boots != null)
             {
-                if ((elve.Health > 0) && (this.GetAttack() > elve.boots.DefenseValue))
+                if ((elf.Health > 0) && (this.GetAttack() > elf.boots.DefenseValue))
                 {                  
-                    elve.Health -= (this.GetAttack() - elve.boots.DefenseValue);                    
+                    elf.Health -= (this.GetAttack() - elf.boots.DefenseValue);                    
                 }
             }    
+        }
+
+        public void attackDwarf(Dwarf dwarf)
+        {
+            if (dwarf.Shield != null)
+            {
+                if ((dwarf.Health > 0) && (this.GetAttack() > dwarf.Shield.DefenseValue))
+                {                  
+                    dwarf.Health -= (this.GetAttack() - dwarf.Shield.DefenseValue);                    
+                }
+            } 
         }
     }
 }
