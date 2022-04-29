@@ -2,7 +2,7 @@ using System;
 
 namespace Roleplay
 {
-    public class Warrior
+    public class Dwarf
     {
         private string name;
 
@@ -22,7 +22,7 @@ namespace Roleplay
             }
         }
 
-        private int health = 100;
+        private int health = 110;
 
         public int Health
         {   
@@ -46,44 +46,44 @@ namespace Roleplay
         
 
         //Constructor
-        public Warrior(string aName) 
+        public Dwarf(string aName) 
         {
             this.name = aName;
         }
         
         // Item ofensivo
-        public Sword Sword; 
+        public Hammer Hammer; 
 
         // Item defensivo
-        public Breastplate Breastplate;
+        public Shield Shield;
 
         // Cambiar item ofensivo
-        public void ChangeSword(Sword sword)
+        public void ChangeHammer(Hammer hammer)
         {
-            this.Sword = sword;
+            this.Hammer = hammer;
         }
 
         // Remover item ofensivo
-        public void RemoveSword()
+        public void RemoveHammer()
         {
-            if (this.Sword != null)
+            if (this.Hammer != null)
             {
-                this.Sword = null;
+                this.Hammer = null;
             }
         }
 
         // Cambiar item defensivo
-         public void ChangeBreastplate(Breastplate breastplate)
+        public void ChangeShield(Shield shield)
         {
-            this.Breastplate = breastplate;
+            this.Shield = shield;
         }
 
         // Remover item defensivo
-        public void RemoveBreastplate()
+        public void RemoveShield()
         {   
-            if (this.Breastplate != null)
+            if (this.Shield != null)
             {
-                this.Breastplate = null;
+                this.Shield = null;
             }
         }
 
@@ -92,9 +92,9 @@ namespace Roleplay
         {   
             int totalDamage = 15;     //daño default (aunque no tenga item equipado)
 
-            if (this.Sword != null)
+            if (this.Hammer != null)
             {
-                totalDamage += this.Sword.AttackValue; 
+                totalDamage += this.Hammer.AttackValue; 
                 return totalDamage;  
             }
             return totalDamage;
@@ -129,27 +129,26 @@ namespace Roleplay
                 }
             }    
         }
-
-        public void attackElf(Elf elf)
-        {      
-            if (elf.boots != null)
-            {
-                if ((elf.Health > 0) && (this.GetAttack() > elf.boots.DefenseValue))
-                {                  
-                    elf.Health -= (this.GetAttack() - elf.boots.DefenseValue);                    
-                }
-            }    
-        }
-
         public void attackDwarf(Dwarf dwarf)
-        {
+        {      
             if (dwarf.Shield != null)
             {
                 if ((dwarf.Health > 0) && (this.GetAttack() > dwarf.Shield.DefenseValue))
                 {                  
                     dwarf.Health -= (this.GetAttack() - dwarf.Shield.DefenseValue);                    
                 }
-            } 
+            }    
+        }
+
+        public void attackElf(Elf elf)
+        {      
+            if (elf.Boots != null)
+            {
+                if ((elf.Health > 0) && (this.GetAttack() > elf.Boots.DefenseValue))
+                {                  
+                    elf.Health -= (this.GetAttack() - elf.Boots.DefenseValue);                    
+                }
+            }    
         }
     }
 }

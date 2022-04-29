@@ -4,9 +4,12 @@ using System.Linq;
 
 namespace Roleplay
 {
-    public class Elve
+    public class Elf
     {
         private string name;
+        private int health = 80;
+        public Boots boots;
+        public Bow bow;
 
         public string Name
         {
@@ -23,8 +26,6 @@ namespace Roleplay
                 }
             }
         }
-
-        private int health = 80;
 
         public int Health
         {
@@ -46,11 +47,7 @@ namespace Roleplay
             }
         }
 
-        public Boots boots;
-        
-        public Bow bow;
-
-        public Elve(string aName)
+        public Elf(string aName)
         {
             aName = name;
         }
@@ -90,13 +87,14 @@ namespace Roleplay
             }
         }
 
-        public void attack()
-        {
-        }
-
         public void Heal()
         {
             this.health = 80;
         }
-    }
+
+        public string GetString()
+        {
+            return ($" Elfo: {this.name} \n Vida: {this.health} \n Botas: {this.boots} \n Arco: {this.bow} \n");
+        }
+   }
 }

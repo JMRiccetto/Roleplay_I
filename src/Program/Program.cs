@@ -1,4 +1,5 @@
 ﻿using System;
+using Roleplay;
 
 namespace Roleplay
 {
@@ -6,6 +7,16 @@ namespace Roleplay
     {
         static void Main(string[] args)
         {
+            Elf Fernando = new Elf("Fernando");
+            
+            Boots BotasMagicas = new Boots(0,15);
+            Bow ArcoMagico = new Bow(30,0);
+
+            Fernando.ChangeBoots(BotasMagicas);
+            Fernando.ChangeBow(ArcoMagico);
+
+            Console.WriteLine(Fernando.GetString());
+
             Warrior warrior1 = new Warrior("Ragnar");
 
             Warrior warrior2 = new Warrior("Bjorn");
@@ -38,7 +49,6 @@ namespace Roleplay
 
             Console.WriteLine("stats despues de ser atacado");
             Console.WriteLine(warrior1.Health);
-            
         }
     }
 }
