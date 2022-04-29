@@ -20,9 +20,8 @@ namespace Test.Library
         [SetUp]
         public void SetUp()
         {
-            this.spell = new Spell("Fireball", 30);
-            this.spellList = new List<Spell>();
-            this.spellBook = new SpellBook(this.spellList);
+            this.spell = new Spell("Fireball", 30);        
+            this.spellBook = new SpellBook();
             this.cape = new Cape(0,10);
             this.wizard = new Wizard("Merlín", this.spellBook);
             this.spellBook.AddSpell(this.spell);
