@@ -8,11 +8,12 @@ namespace Roleplay
         static void Main(string[] args)
         {
             Elf Fernando = new Elf("Fernando");
+
             
             Boots BotasMagicas = new Boots(0,15);
             Bow ArcoMagico = new Bow(30,0);
 
-            Fernando.ChangeBoots(BotasMagicas);
+            Fernando.ChangeBoots(BotasMagicas);          
             Fernando.ChangeBow(ArcoMagico);
 
             Console.WriteLine(Fernando.GetString());
@@ -49,7 +50,6 @@ namespace Roleplay
 
             Console.WriteLine("stats despues de ser atacado");
             Console.WriteLine(warrior1.Health);
-            
         }
     }
 }
