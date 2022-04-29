@@ -39,7 +39,7 @@ namespace Test.Library
         
         //Test para verificar que un mago 
         [Test]
-        public void AttackWarriorWithWizardTest()
+        public void AttackWarriorWithValidArmorAndValid()
         {
             
         }

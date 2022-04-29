@@ -123,20 +123,20 @@ namespace Roleplay
         {      
             if (wizard.SpellBook.spell != null)
             {
-                if ((wizard.Health > 0) && (this.GetAttack() > wizard.SpellBook.spell.DefenseValue))
+                if ((wizard.Health > 0) && (this.GetAttack() > wizard.Cape.DefenseValue))
                 {                  
-                    wizard.Health -= (this.GetAttack() - wizard.SpellBook.spell.DefenseValue);                    
+                    wizard.Health -= (this.GetAttack() - wizard.Cape.DefenseValue);                    
                 }
             }    
         }
 
         public void attackElf(Elf elf)
         {      
-            if (elf.boots != null)
+            if (elf.Boots != null)
             {
-                if ((elf.Health > 0) && (this.GetAttack() > elf.boots.DefenseValue))
+                if ((elf.Health > 0) && (this.GetAttack() > elf.Boots.DefenseValue))
                 {                  
-                    elf.Health -= (this.GetAttack() - elf.boots.DefenseValue);                    
+                    elf.Health -= (this.GetAttack() - elf.Boots.DefenseValue);                    
                 }
             }    
         }
@@ -150,6 +150,11 @@ namespace Roleplay
                     dwarf.Health -= (this.GetAttack() - dwarf.Shield.DefenseValue);                    
                 }
             } 
+        }
+
+        public void Heal()
+        {
+            this.health = 100;
         }
     }
 }

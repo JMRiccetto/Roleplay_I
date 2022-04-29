@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 
 namespace Roleplay
 {
@@ -49,9 +48,10 @@ namespace Roleplay
         
         public SpellBook SpellBook;
 
-        public Wizard(string aName)
+        public Wizard(string aName, SpellBook aSpellBook)
         {
             this.name = aName;
+            this.SpellBook = aSpellBook;
         }
 
         public void ChangeCape(Cape cape)
@@ -64,21 +64,41 @@ namespace Roleplay
             this.Cape = null;
         }
         
-        public int GetAttack(Spell spell)
+        public int GetAttack()
         {
-            return this.SpellBook.spell.AttackValue;
-        }
+            int totalDamage = 15;
 
-        public void DamageReceived(int damage)
-        {
-            int totalDefense = this.Cape.DefenseValue + this.SpellBook.spell.DefenseValue;
-            if( totalDefense < damage)
+            if (this.SpellBook.spell != null)
             {
-                damage -= totalDefense;
-                this.health -= damage;
+                totalDamage += this.SpellBook.spell.AttackValue; 
+                return totalDamage;  
             }
+            return totalDamage;
         }
 
+        public void attackWarrior(Warrior warrior)
+        {      
+            if (warrior.Breastplate != null)
+            {
+                if ((warrior.Health > 0) && (this.GetAttack() > warrior.Breastplate.DefenseValue))
+                {                  
+                    warrior.Health -= (this.GetAttack() - warrior.Breastplate.DefenseValue);                    
+                }
+            }    
+        }
+
+         public void attackWizard(Wizard wizard)
+        {      
+            if (wizard.SpellBook.spell != null)
+            {
+                if ((wizard.Health > 0) && (this.GetAttack() > wizard.Cape.DefenseValue))
+                {                  
+                    wizard.Health -= (this.GetAttack() - wizard.Cape.DefenseValue);                    
+                }
+            }    
+        }
+
+        
         public void Heal()
         {
             this.health = 70;

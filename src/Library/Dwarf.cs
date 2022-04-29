@@ -123,9 +123,9 @@ namespace Roleplay
         {      
             if (wizard.SpellBook.spell != null)
             {
-                if ((wizard.Health > 0) && (this.GetAttack() > wizard.SpellBook.spell.DefenseValue))
+                if ((wizard.Health > 0) && (this.GetAttack() > wizard.Cape.DefenseValue))
                 {                  
-                    wizard.Health -= (this.GetAttack() - wizard.SpellBook.spell.DefenseValue);                    
+                    wizard.Health -= (this.GetAttack() - wizard.Cape.DefenseValue);                    
                 }
             }    
         }

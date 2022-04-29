@@ -8,8 +8,8 @@ namespace Roleplay
     {
         private string name;
         private int health = 80;
-        public Boots boots;
-        public Bow bow;
+        public Boots Boots;
+        public Bow Bow;
 
         public string Name
         {
@@ -54,32 +54,32 @@ namespace Roleplay
 
         public void ChangeBow(Bow bow)
         {
-            this.bow = bow;
+            this.Bow = bow;
         }
 
         public void RemoveBow(Bow bow)
         {
-            this.bow = null;
+            this.Bow = null;
         }
 
         public void ChangeBoots(Boots boots)
         {
-            this.boots = boots;
+            this.Boots = boots;
         }
 
         public void RemoveBoots(Boots boots)
         {
-            this.boots = null;
+            this.Boots = null;
         }
         
         public int GetAttack(Bow bow)
         {
-            return this.bow.AttackValue;
+            return this.Bow.AttackValue;
         }
 
         public void DamageReceived(int damage)
         {
-            int totalDefense = this.bow.defenseValue + this.boots.DefenseValue;
+            int totalDefense = this.Bow.defenseValue + this.Boots.DefenseValue;
             if( totalDefense < damage)
             {
                 damage -= totalDefense;
@@ -94,7 +94,7 @@ namespace Roleplay
 
         public string GetString()
         {
-            return ($" Elfo: {this.name} \n Vida: {this.health} \n Botas: {this.boots} \n Arco: {this.bow} \n");
+            return ($" Elfo: {this.name} \n Vida: {this.health} \n Botas: {this.Boots} \n Arco: {this.Bow} \n");
         }
    }
 }
