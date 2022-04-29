@@ -7,12 +7,7 @@ namespace Roleplay
     {
         public Spell spell;
 
-        public List<Spell> SpellList;
-
-        public SpellBook(List<Spell> spellList)
-        {
-            this.SpellList = spellList;
-        }
+        List<Spell> SpellList = new List<Spell>();
 
         public void AddSpell(Spell spell)
         {

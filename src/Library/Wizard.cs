@@ -59,7 +59,7 @@ namespace Roleplay
             this.Cape = cape;
         }
 
-        public void RemoveCape(Cape cape)
+        public void RemoveCape()
         {
             this.Cape = null;
         }
@@ -84,21 +84,29 @@ namespace Roleplay
                 {                  
                     warrior.Health -= (this.GetAttack() - warrior.Breastplate.DefenseValue);                    
                 }
-            }    
+            }
+            else
+            {
+                warrior.Health -= this.GetAttack();
+            }
         }
 
          public void attackWizard(Wizard wizard)
         {      
-            if (wizard.SpellBook.spell != null)
+            if (wizard.Cape != null)
             {
                 if ((wizard.Health > 0) && (this.GetAttack() > wizard.Cape.DefenseValue))
                 {                  
                     wizard.Health -= (this.GetAttack() - wizard.Cape.DefenseValue);                    
                 }
-            }    
+            }
+            else
+            {
+                wizard.Health -= this.GetAttack();
+            } 
         }
 
-        
+        //El personaje es curado, devolviendo su vida al máximo.
         public void Heal()
         {
             this.health = 70;
