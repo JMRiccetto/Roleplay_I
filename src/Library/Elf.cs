@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Roleplay
 {
-    public class Elve
+    public class Elf
     {
         private string name;
         private int health = 80;
@@ -47,7 +47,7 @@ namespace Roleplay
             }
         }
 
-        public Elve(string aName)
+        public Elf(string aName)
         {
             aName = name;
         }
