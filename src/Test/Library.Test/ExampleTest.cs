@@ -1,4 +1,4 @@
-using NUnit.Framework;
+/*using NUnit.Framework;
 using Roleplay;
 
 namespace Test.Library
@@ -361,7 +361,7 @@ namespace Test.Library
         {
             Warrior warrior = new Warrior("Ragnar");
             Dwarf dwarf = new Dwarf("Grumpy");
-            Shield shield = new Shield(0,15)
+            Shield shield = new Shield(0,15);
             elf.ChangeSield(shield);
             warrior.attackDwarf(dwarf);
             int expected = 110;
@@ -386,4 +386,4 @@ namespace Test.Library
         }
 
     }   
-}
+}   */
