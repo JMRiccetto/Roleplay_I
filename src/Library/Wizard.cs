@@ -1,15 +1,11 @@
-
 using System;
 using System.Linq;
 
 namespace Roleplay
 {
-    public class Elve
+    public class Wizard
     {
         private string name;
-        private int health = 80;
-        public Boots boots;
-        public Bow bow;
 
         public string Name
         {
@@ -26,6 +22,8 @@ namespace Roleplay
                 }
             }
         }
+
+        private int health = 70;
 
         public int Health
         {
@@ -47,39 +45,33 @@ namespace Roleplay
             }
         }
 
-        public Elve(string aName)
+        public Cape Cape;
+        
+        public SpellBook SpellBook;
+
+        public Wizard(string aName)
         {
-            aName = name;
+            this.name = aName;
         }
 
-        public void ChangeBow(Bow bow)
+        public void ChangeCape(Cape cape)
         {
-            this.bow = bow;
+            this.Cape = cape;
         }
 
-        public void RemoveBow(Bow bow)
+        public void RemoveCape(Cape cape)
         {
-            this.bow = null;
-        }
-
-        public void ChangeBoots(Boots boots)
-        {
-            this.boots = boots;
-        }
-
-        public void RemoveBoots(Boots boots)
-        {
-            this.boots = null;
+            this.Cape = null;
         }
         
-        public int GetAttack(Bow bow)
+        public int GetAttack(Spell spell)
         {
-            return this.bow.AttackValue;
+            return this.SpellBook.spell.AttackValue;
         }
 
         public void DamageReceived(int damage)
         {
-            int totalDefense = this.bow.defenseValue + this.boots.DefenseValue;
+            int totalDefense = this.Cape.DefenseValue + this.SpellBook.spell.DefenseValue;
             if( totalDefense < damage)
             {
                 damage -= totalDefense;
@@ -89,12 +81,7 @@ namespace Roleplay
 
         public void Heal()
         {
-            this.health = 80;
+            this.health = 70;
         }
-
-        public string GetString()
-        {
-            return ($" Elfo: {this.name} \n Vida: {this.health} \n Botas: {this.boots} \n Arco: {this.bow} \n");
-        }
-   }
+    }
 }
