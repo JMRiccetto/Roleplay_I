@@ -119,7 +119,7 @@ namespace Roleplay
             }    
         }
 
-         public void attackWizard(Wizard wizard)
+        public void attackWizard(Wizard wizard)
         {      
             if (wizard.SpellBook.spell != null)
             {
@@ -128,6 +128,28 @@ namespace Roleplay
                     wizard.Health -= (this.GetAttack() - wizard.SpellBook.spell.DefenseValue);                    
                 }
             }    
+        }
+
+        public void attackElf(Elf elf)
+        {      
+            if (elf.boots != null)
+            {
+                if ((elf.Health > 0) && (this.GetAttack() > elf.boots.DefenseValue))
+                {                  
+                    elf.Health -= (this.GetAttack() - elf.boots.DefenseValue);                    
+                }
+            }    
+        }
+
+        public void attackDwarf(Dwarf dwarf)
+        {
+            if (dwarf.Shield != null)
+            {
+                if ((dwarf.Health > 0) && (this.GetAttack() > dwarf.Shield.DefenseValue))
+                {                  
+                    dwarf.Health -= (this.GetAttack() - dwarf.Shield.DefenseValue);                    
+                }
+            } 
         }
     }
 }
