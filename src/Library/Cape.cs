@@ -4,6 +4,7 @@ namespace Roleplay
 {
     public class Cape
     {
+        //Valor de ataque del item Cape.
         private int attackValue;
 
         public int AttackValue
@@ -25,8 +26,9 @@ namespace Roleplay
             }
         }
 
+        //Valor de defensa del item Cape.
         private int defenseValue;
-
+        
         public int DefenseValue
         {
             get
@@ -48,8 +50,15 @@ namespace Roleplay
 
         public Cape(int attack, int defense)
         {
-            this.attackValue = attack;
-            this.defenseValue = defense;
+            if (attack > 0)
+                this.attackValue = attack;
+            else
+                this.attackValue = 0;
+            
+            if (defense > 0)
+                this.defenseValue = defense;
+            else
+                this.defenseValue = 0;
         }
     }
 }

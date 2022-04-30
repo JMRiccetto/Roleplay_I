@@ -2,8 +2,10 @@ using System;
 
 namespace Roleplay
 {
+    //Clase que a efectos prácticos funciona como armas, pero que deben ser almacenados en un libro de hechizos.
     public class Spell
     {
+        //Nombre del Spell.
         private string name;
 
         public string Name
@@ -22,6 +24,7 @@ namespace Roleplay
             }
         }
 
+        //Valor de ataque del Spell.
         private int attackValue;
 
         public int AttackValue
@@ -44,33 +47,13 @@ namespace Roleplay
             }
         }
 
-        private int defenseValue;
-
-        public int DefenseValue
-        {
-            get
-            {
-                return this.defenseValue;
-            }
-
-            set
-            {
-                if (value > 0)
-                {
-                    this.defenseValue = value;
-                }
-                else
-                {
-                    this.defenseValue = 0;
-                }
-            }
-        }
-        
-        public Spell(string aName, int aAttackValue, int aDefenseValue)
+        public Spell(string aName, int attack)
         {
             this.name = aName;
-            this.attackValue = aAttackValue;
-            this.defenseValue = aDefenseValue;
+            if (attack > 0)
+                this.attackValue = attack;
+            else
+                this.attackValue = 0;
         }
     }
 }

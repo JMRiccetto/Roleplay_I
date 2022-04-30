@@ -2,7 +2,7 @@ using System;
 
 namespace Roleplay
 {
-    public class Bow
+    public class Shield
     {
         private int attackValue;
 
@@ -46,17 +46,10 @@ namespace Roleplay
             }
         }
 
-        public Bow(int attack, int defense)
+        public Shield(int attack, int defense)
         {
-            if (attack > 0)
-                this.attackValue = attack;
-            else
-                this.attackValue = 0;
-
-            if (defense > 0)
-                this.defenseValue = defense;
-            else
-                this.defenseValue = 0;
+            this.attackValue = attack;
+            this.defenseValue = defense;
         }
     }
 }

@@ -5,10 +5,10 @@ namespace Roleplay
 {
     class Program
     {
+        //
         static void Main(string[] args)
         {
             Elf Fernando = new Elf("Fernando");
-
             
             Boots BotasMagicas = new Boots(0,15);
             Bow ArcoMagico = new Bow(30,0);
@@ -16,7 +16,6 @@ namespace Roleplay
             Fernando.ChangeBoots(BotasMagicas);          
             Fernando.ChangeBow(ArcoMagico);
 
-            Console.WriteLine(Fernando.GetString());
 
             Warrior warrior1 = new Warrior("Ragnar");
 
