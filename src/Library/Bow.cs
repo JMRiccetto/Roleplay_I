@@ -25,7 +25,7 @@ namespace Roleplay
             }
         }
 
-        public int defenseValue;
+        private int defenseValue;
 
         public int DefenseValue
         {
@@ -48,8 +48,15 @@ namespace Roleplay
 
         public Bow(int attack, int defense)
         {
-            this.attackValue = attack;
-            this.defenseValue = defense;
+            if (attack > 0)
+                this.attackValue = attack;
+            else
+                this.attackValue = 0;
+
+            if (defense > 0)
+                this.defenseValue = defense;
+            else
+                this.defenseValue = 0;
         }
     }
 }
