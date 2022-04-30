@@ -47,9 +47,16 @@ namespace Roleplay
         }
 
         public Sword(int attack, int defense)
-        {
-            this.attackValue = attack;
-            this.defenseValue = defense;
+        {   
+            if (attack > 0)
+                this.attackValue = attack;
+            else
+                this.attackValue = 0;
+            
+            if (defense > 0)
+                this.defenseValue = defense;
+            else
+                this.defenseValue = 0;
         }
     }
 }
