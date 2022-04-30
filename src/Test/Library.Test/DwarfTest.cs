@@ -6,7 +6,7 @@ namespace Test.Library
 {
 
 
-    public class WarriorTest
+    public class DwarfTest
     {
 
         
@@ -17,9 +17,9 @@ namespace Test.Library
         [Test]
         public void validNameTest()
         {
-            Warrior warrior = new Warrior("Ragnar");
+            Dwarf dwarf = new Dwarf("Ragnar");
             string expected = "Ragnar";
-            string actual = warrior.Name;
+            string actual = dwarf.Name;
             Assert.AreEqual(expected,actual);
         }
 
@@ -27,9 +27,9 @@ namespace Test.Library
         [Test]
         public void noValidName1Test()
         {
-            Warrior warrior = new Warrior("");
+            Dwarf dwarf = new Dwarf("");
             string expected = "";
-            string actual = warrior.Name;
+            string actual = dwarf.Name;
             Assert.AreEqual(expected, actual);
         }
 
@@ -37,9 +37,9 @@ namespace Test.Library
         [Test]
         public void noValidName2Test()
         {
-            Warrior warrior = new Warrior(null);
+            Dwarf dwarf = new Dwarf(null);
             string expected = null;
-            string actual = warrior.Name;
+            string actual = dwarf.Name;
             Assert.AreEqual(expected, actual);
         }
 
@@ -51,28 +51,28 @@ namespace Test.Library
         [Test]
         public void InvalidHealthTest()
         {
-            Warrior warrior = new Warrior("Joseph");
-            warrior.Health = -30;
-            Assert.AreEqual(warrior.Health, 0);
+            Dwarf dwarf = new Dwarf("Joseph");
+            dwarf.Health = -30;
+            Assert.AreEqual(dwarf.Health, 0);
         }
 
         //Test que demuestra que es posible asignar una vida válida.
         [Test]
         public void ValidHealthTest()
         {
-            Warrior warrior = new Warrior("Joseph");
-            Assert.AreEqual(warrior.Health, 100);
+            Dwarf dwarf = new Dwarf("Joseph");
+            Assert.AreEqual(dwarf.Health, 110);
         }
 
         // Testea el metodo Heal.
         [Test]
         public void HealTest()
         {
-            Warrior warrior = new Warrior("Ragnar");
-            warrior.Health = 20;
-            warrior.Heal();
-            int expected = 100;
-            int actual = warrior.Health;
+            Dwarf dwarf = new Dwarf("Ragnar");
+            dwarf.Health = 20;
+            dwarf.Heal();
+            int expected = 110;
+            int actual = dwarf.Health;
             Assert.AreEqual(expected, actual);
         }
 
@@ -82,60 +82,60 @@ namespace Test.Library
 
         // Testea si el item "Sword" es null cuando se crea el personaje.
         [Test]
-        public void isNullSwordTest()
+        public void isNullHammerTest()
         {
-            Warrior warrior = new Warrior("Ragnar");
-            Assert.IsNull(warrior.Sword);
+            Dwarf dwarf = new Dwarf("Ragnar");
+            Assert.IsNull(dwarf.Hammer);
         }
 
         // Testea el metodo ChangeSword.
         [Test]
-        public void changeSwordTest()
+        public void changeHammerTest()
         {
-            Warrior warrior = new Warrior("Ragnar");
-            Hammer sword = new Hammer(20,0);
-            warrior.ChangeSword(sword);
-            Assert.IsNotNull(warrior.Sword);
+            Dwarf dwarf = new Dwarf("Ragnar");
+            Hammer hammer = new Hammer(20,0);
+            dwarf.ChangeHammer(hammer);
+            Assert.IsNotNull(dwarf.Hammer);
         }
 
         // Testea el metodo RemoveSword.
         [Test]
-        public void removeSwordTest()
+        public void removeHammerTest()
         {
-            Warrior warrior = new Warrior("Ragnar");
-            Hammer sword = new Hammer(20,0);
-            warrior.ChangeSword(sword);
-            warrior.RemoveSword();
-            Assert.IsNull(warrior.Sword);
+            Dwarf dwarf = new Dwarf("Ragnar");
+            Hammer hammer = new Hammer(20,0);
+            dwarf.ChangeHammer(hammer);
+            dwarf.RemoveHammer();
+            Assert.IsNull(dwarf.Hammer);
         }
 
         // Testea si el item "Breastplate" es null cuando se crea el personaje.
         [Test]
-        public void isNullBreastplateTest()
+        public void isNullShieldTest()
         {
-            Warrior warrior = new Warrior("Ragnar");
-            Assert.IsNull(warrior.Breastplate);
+            Dwarf dwarf = new Dwarf("Ragnar");
+            Assert.IsNull(dwarf.Shield);
         }
 
         // Testea el metodo ChangeBreastplate.
         [Test]
-        public void changeBreastplateTest()
+        public void changeShieldTest()
         {
-            Warrior warrior = new Warrior("Ragnar");
-            Breastplate breastplate = new Breastplate(0,20);
-            warrior.ChangeBreastplate(breastplate);
-            Assert.IsNotNull(warrior.Breastplate);
+            Dwarf dwarf = new Dwarf("Ragnar");
+            Shield shield = new Shield(0,20);
+            dwarf.ChangeShield(shield);
+            Assert.IsNotNull(dwarf.Shield);
         }
 
         // Testea el metodo RemoveBreastplate.
         [Test]
-        public void removeBreastplateTest()
+        public void removeShieldTest()
         {
-            Warrior warrior = new Warrior("Ragnar");
-            Breastplate breastplate = new Breastplate(0,20);
-            warrior.ChangeBreastplate(breastplate);
-            warrior.RemoveBreastplate();
-            Assert.IsNull(warrior.Sword);
+            Dwarf dwarf = new Dwarf("Ragnar");
+            Shield shield = new Shield(0,20);
+            dwarf.ChangeShield(shield);
+            dwarf.RemoveShield();
+            Assert.IsNull(dwarf.Hammer);
         }
 
 
@@ -146,9 +146,9 @@ namespace Test.Library
         [Test]
         public void attackValueWithoutItemsTest()
         {
-            Warrior warrior = new Warrior("Ragnar");
+            Dwarf dwarf = new Dwarf("Ragnar");
             int expected = 15;
-            int actual = warrior.GetAttack();
+            int actual = dwarf.GetAttack();
             Assert.AreEqual(expected, actual);
         }
 
@@ -156,13 +156,13 @@ namespace Test.Library
         [Test]
         public void attackValueWithItemsTest()
         {
-            Warrior warrior = new Warrior("Ragnar");
-            Hammer sword = new Hammer(20,0);
-            Breastplate breastplate = new Breastplate(0,20);
-            warrior.ChangeSword(sword);
-            warrior.ChangeBreastplate(breastplate);
+            Dwarf dwarf = new Dwarf("Ragnar");
+            Hammer hammer = new Hammer(20,0);
+            Shield shield = new Shield(0,20);
+            dwarf.ChangeHammer(hammer);
+            dwarf.ChangeShield(shield);
             int expected = 35;
-            int actual = warrior.GetAttack();
+            int actual = dwarf.GetAttack();
             Assert.AreEqual(expected, actual);
         }
 
@@ -173,60 +173,60 @@ namespace Test.Library
         // Testea el metodo attackWrrior con ambos personajes sin items.
         [Test]
         
-        public void attackWarrior1Test()    
+        public void attackDwarf1Test()    
         {
-            Warrior warrior1 = new Warrior("Ragnar");
-            Warrior warrior2 = new Warrior("Bjorn");
-            warrior1.attackWarrior(warrior2);
-            int expected = 85;
-            int actual = warrior2.Health;
+            Dwarf dwarf1 = new Dwarf("Ragnar");
+            Dwarf dwarf2 = new Dwarf("Bjorn");
+            dwarf1.attackDwarf(dwarf2);
+            int expected = 95;
+            int actual = dwarf2.Health;
             Assert.AreEqual(expected, actual);
         }
 
         // Testea el metodo attackWrrior con el personaje que ataca con item de ataque y el que se defiende sin item de defensa.
         [Test]
 
-        public void attackWarrior2Test()    
+        public void attackDwarf2Test()    
         {
-            Warrior warrior1 = new Warrior("Ragnar");
-            Warrior warrior2 = new Warrior("Bjorn");
-            Hammer sword = new Hammer(20,0);
-            warrior1.ChangeSword(sword);
-            warrior1.attackWarrior(warrior2);
-            int expected = 65;
-            int actual = warrior2.Health;
+            Dwarf dwarf1 = new Dwarf("Ragnar");
+            Dwarf dwarf2 = new Dwarf("Bjorn");
+            Hammer hammer = new Hammer(20,0);
+            dwarf1.ChangeHammer(hammer);
+            dwarf1.attackDwarf(dwarf2);
+            int expected = 75;
+            int actual = dwarf2.Health;
             Assert.AreEqual(expected, actual);
         }
 
         // Testea el metodo attackWrrior con el personaje que ataca sin item de ataque y el que se defiende con item de defensa.
         [Test]
 
-        public void attackWarrior3Test()    
+        public void attackDwarf3Test()    
         {
-            Warrior warrior1 = new Warrior("Ragnar");
-            Warrior warrior2 = new Warrior("Bjorn");
-            Breastplate breastplate = new Breastplate(0,20);
-            warrior2.ChangeBreastplate(breastplate);
-            warrior1.attackWarrior(warrior2);
-            int expected = 100;
-            int actual = warrior2.Health;
+            Dwarf dwarf1 = new Dwarf("Ragnar");
+            Dwarf dwarf2 = new Dwarf("Bjorn");
+            Shield shield = new Shield(0,20);
+            dwarf2.ChangeShield(shield);
+            dwarf1.attackDwarf(dwarf2);
+            int expected = 110;
+            int actual = dwarf2.Health;
             Assert.AreEqual(expected, actual);
         }
 
         // Testea el metodo attackWrrior con el personaje que ataca con item de ataque y el que se defiende con item de defensa.
         [Test]
 
-        public void attackWarrior4Test()    
+        public void attackDwarf4Test()    
         {
-            Warrior warrior1 = new Warrior("Ragnar");
-            Warrior warrior2 = new Warrior("Bjorn");
-            Hammer sword = new Hammer(25,0);
-            Breastplate breastplate = new Breastplate(0,20);
-            warrior1.ChangeSword(sword);
-            warrior2.ChangeBreastplate(breastplate);
-            warrior1.attackWarrior(warrior2);
-            int expected = 80;
-            int actual = warrior2.Health;
+            Dwarf dwarf1 = new Dwarf("Ragnar");
+            Dwarf dwarf2 = new Dwarf("Bjorn");
+            Hammer hammer = new Hammer(25,0);
+            Shield shield = new Shield(0,20);
+            dwarf1.ChangeHammer(hammer);
+            dwarf2.ChangeShield(shield);
+            dwarf1.attackDwarf(dwarf2);
+            int expected = 90;
+            int actual = dwarf2.Health;
             Assert.AreEqual(expected, actual);
         }
 
@@ -239,10 +239,10 @@ namespace Test.Library
         
         public void attackWizard1Test()    
         {
-            Warrior warrior = new Warrior("Ragnar");
+            Dwarf dwarf = new Dwarf("Ragnar");
             SpellBook spellBook = new SpellBook();
             Wizard wizard = new Wizard("Merlín", spellBook);
-            warrior.attackWizard(wizard);
+            dwarf.attackWizard(wizard);
             int expected = 55;
             int actual = wizard.Health;
             Assert.AreEqual(expected, actual);
@@ -253,12 +253,12 @@ namespace Test.Library
 
         public void attackWizard2Test()    
         {
-            Warrior warrior = new Warrior("Ragnar");           
+            Dwarf dwarf = new Dwarf("Ragnar");           
             SpellBook spellBook = new SpellBook();
             Wizard wizard = new Wizard("Merlín", spellBook);
-            Hammer sword = new Hammer(20,0);
-            warrior.ChangeSword(sword);
-            warrior.attackWizard(wizard);
+            Hammer hammer = new Hammer(20,0);
+            dwarf.ChangeHammer(hammer);
+            dwarf.attackWizard(wizard);
             int expected = 35;
             int actual = wizard.Health;
             Assert.AreEqual(expected, actual);
@@ -269,13 +269,13 @@ namespace Test.Library
 
         public void attackWizard3Test()    
         {
-            Warrior warrior = new Warrior("Ragnar"); 
+            Dwarf dwarf = new Dwarf("Ragnar"); 
             SpellBook spellBook = new SpellBook();
             Wizard wizard = new Wizard("Merlín", spellBook);
             Cape cape = new Cape(0,15);
             wizard.ChangeCape(cape);
-            warrior.attackWizard(wizard);
-            int expected = 70;
+            dwarf.attackWizard(wizard);
+            int expected = 55;
             int actual = wizard.Health;
             Assert.AreEqual(expected, actual);
         }
@@ -285,15 +285,15 @@ namespace Test.Library
 
         public void attackWizard4Test()    
         {
-            Warrior warrior = new Warrior("Ragnar");
+            Dwarf dwarf = new Dwarf("Ragnar");
             SpellBook spellBook = new SpellBook();
             Wizard wizard = new Wizard("Merlín", spellBook);
-            Hammer sword = new Hammer(25,0);
+            Hammer hammer = new Hammer(25,0);
             Cape cape = new Cape(0,15);
-            warrior.ChangeSword(sword);
+            dwarf.ChangeHammer(hammer);
             wizard.ChangeCape(cape);
-            warrior.attackWizard(wizard);
-            int expected = 45;
+            dwarf.attackWizard(wizard);
+            int expected = 30;
             int actual = wizard.Health;
             Assert.AreEqual(expected, actual);
         }
@@ -307,9 +307,9 @@ namespace Test.Library
         
         public void attackElf1Test()    
         {
-            Warrior warrior = new Warrior("Ragnar");
+            Dwarf dwarf = new Dwarf("Ragnar");
             Elf elf = new Elf("Dobby");
-            warrior.attackElf(elf);
+            dwarf.attackElf(elf);
             int expected = 60;
             int actual = elf.Health;
             Assert.AreEqual(expected, actual);
@@ -320,11 +320,11 @@ namespace Test.Library
 
         public void attackElf2Test()    
         {
-            Warrior warrior = new Warrior("Ragnar");
+            Dwarf dwarf = new Dwarf("Ragnar");
             Elf elf = new Elf("Dobby");
-            Hammer sword = new Hammer(20,0);
-            warrior.ChangeSword(sword);
-            warrior.attackElf(elf);
+            Hammer hammer = new Hammer(20,0);
+            dwarf.ChangeHammer(hammer);
+            dwarf.attackElf(elf);
             int expected = 40;
             int actual = elf.Health;
             Assert.AreEqual(expected, actual);
@@ -335,11 +335,11 @@ namespace Test.Library
 
         public void attackElf3Test()    
         {
-            Warrior warrior = new Warrior("Ragnar");
+            Dwarf dwarf = new Dwarf("Ragnar");
             Elf elf = new Elf("Dobby");
             Boots boots = new Boots(0,15);
             elf.ChangeBoots(boots);
-            warrior.attackElf(elf);
+            dwarf.attackElf(elf);
             int expected = 75;
             int actual = elf.Health;
             Assert.AreEqual(expected, actual);
@@ -350,13 +350,13 @@ namespace Test.Library
 
         public void attackElf4Test()    
         {
-            Warrior warrior = new Warrior("Ragnar");
+            Dwarf dwarf = new Dwarf("Ragnar");
             Elf elf = new Elf("Dobby");
-            Hammer sword = new Hammer(25,0);
+            Hammer hammer = new Hammer(25,0);
             Boots boots = new Boots(0,15);
-            warrior.ChangeSword(sword);
+            dwarf.ChangeHammer(hammer);
             elf.ChangeBoots(boots);
-            warrior.attackElf(elf);
+            dwarf.attackElf(elf);
             int expected = 50;
             int actual = elf.Health;
             Assert.AreEqual(expected, actual);
@@ -369,60 +369,60 @@ namespace Test.Library
         // Testea el metodo attackWrrior con ambos personajes sin items.
         [Test]
         
-        public void attackDwarf1Test()    
+        public void attackWarrior1Test()    
         {
             Warrior warrior = new Warrior("Ragnar");
             Dwarf dwarf = new Dwarf("Grumpy");
-            warrior.attackDwarf(dwarf);
-            int expected = 95;
-            int actual = dwarf.Health;
+            dwarf.attackWarrior(warrior);
+            int expected = 85;
+            int actual = warrior.Health;
             Assert.AreEqual(expected, actual);
         }
 
         // Testea el metodo attackWrrior con el personaje que ataca con item de ataque y el que se defiende sin item de defensa.
         [Test]
 
-        public void attackDwarf2Test()    
+        public void attackWarrior2Test()    
         {
             Warrior warrior = new Warrior("Ragnar");
             Dwarf dwarf = new Dwarf("Grumpy");
-            Hammer sword = new Hammer(20,0);
-            warrior.ChangeSword(sword);
-            warrior.attackDwarf(dwarf);
-            int expected = 75;
-            int actual = dwarf.Health;
+            Hammer hammer = new Hammer(20,0);
+            dwarf.ChangeHammer(hammer);
+            dwarf.attackWarrior(warrior);
+            int expected = 65;
+            int actual = warrior.Health;
             Assert.AreEqual(expected, actual);
         }
 
         // Testea el metodo attackWrrior con el personaje que ataca sin item de ataque y el que se defiende con item de defensa.
         [Test]
 
-        public void attackDwarf3Test()    
+        public void attackWarrior3Test()    
         {
             Warrior warrior = new Warrior("Ragnar");
             Dwarf dwarf = new Dwarf("Grumpy");
             Shield shield = new Shield(0,15);
             dwarf.ChangeShield(shield);
-            warrior.attackDwarf(dwarf);
-            int expected = 110;
-            int actual = dwarf.Health;
+            dwarf.attackWarrior(warrior);
+            int expected = 85;
+            int actual = warrior.Health;
             Assert.AreEqual(expected, actual);
         }
 
         // Testea el metodo attackWrrior con el personaje que ataca con item de ataque y el que se defiende con item de defensa.
         [Test]
 
-        public void attackDwarf4Test()    
+        public void attackWarrior4Test()    
         {
             Warrior warrior = new Warrior("Ragnar");
             Dwarf dwarf = new Dwarf("Grumpy");
-            Hammer sword = new Hammer(25,0);
+            Hammer hammer = new Hammer(25,0);
             Shield shield = new Shield(0,15);
-            warrior.ChangeSword(sword);
+            dwarf.ChangeHammer(hammer);
             dwarf.ChangeShield(shield);
-            warrior.attackDwarf(dwarf);
-            int expected = 85;
-            int actual = dwarf.Health;
+            dwarf.attackWarrior(warrior);
+            int expected = 60;
+            int actual = warrior.Health;
             Assert.AreEqual(expected, actual);
         }
 
