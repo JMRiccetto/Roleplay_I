@@ -5,6 +5,7 @@ namespace Roleplay
 {
     class Program
     {
+        //
         static void Main(string[] args)
         {
             Elf Fernando = new Elf("Fernando");

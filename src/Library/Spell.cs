@@ -47,10 +47,13 @@ namespace Roleplay
             }
         }
 
-        public Spell(string aName, int aAttackValue)
+        public Spell(string aName, int attack)
         {
             this.name = aName;
-            this.attackValue = aAttackValue;
+            if (attack > 0)
+                this.attackValue = attack;
+            else
+                this.attackValue = 0;
         }
     }
 }

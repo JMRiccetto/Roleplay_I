@@ -47,28 +47,21 @@ namespace Test.Library
         // Health tests.
 
 
-        // Testea la vida del personaje sin items.
+        //Test que demuestra que no es posible asignar una vida válida.
         [Test]
-        public void healthTestWithoutItemsTest()
+        public void InvalidHealthTest()
         {
-            Warrior warrior = new Warrior("Ragnar");
-            int expected = 100;
-            int actual = warrior.Health;
-            Assert.AreEqual(expected, actual);
+            Warrior warrior = new Warrior("Joseph");
+            warrior.Health = -30;
+            Assert.AreEqual(warrior.Health, 0);
         }
 
-        // Testea la vida del personaje con items.
+        //Test que demuestra que es posible asignar una vida válida.
         [Test]
-        public void healthTestWithItemsTest()
+        public void ValidHealthTest()
         {
-            Warrior warrior = new Warrior("Ragnar");
-            Sword sword = new Sword(20,0);
-            Breastplate breastplate = new Breastplate(0,20);
-            warrior.ChangeSword(sword);
-            warrior.ChangeBreastplate(breastplate);
-            int expected = 100;
-            int actual = warrior.Health;
-            Assert.AreEqual(expected, actual);
+            Warrior warrior = new Warrior("Joseph");
+            Assert.AreEqual(warrior.Health, 100);
         }
 
         // Testea el metodo Heal.
