@@ -2,8 +2,10 @@ using System;
 
 namespace Roleplay
 {
+    //Clase que a efectos prácticos funciona como armas, pero que deben ser almacenados en un libro de hechizos.
     public class Spell
     {
+        //Nombre del Spell.
         private string name;
 
         public string Name
@@ -22,6 +24,7 @@ namespace Roleplay
             }
         }
 
+        //Valor de ataque del Spell.
         private int attackValue;
 
         public int AttackValue

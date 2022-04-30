@@ -67,7 +67,7 @@ namespace Roleplay
             this.Boots = boots;
         }
 
-        public void RemoveBoots(Boots boots)
+        public void RemoveBoots()
         {
             this.Boots = null;
         }

@@ -4,6 +4,7 @@ namespace Roleplay
 {
     public class Cape
     {
+        //Valor de ataque del item Cape.
         private int attackValue;
 
         public int AttackValue
@@ -25,8 +26,9 @@ namespace Roleplay
             }
         }
 
+        //Valor de defensa del item Cape.
         private int defenseValue;
-
+        
         public int DefenseValue
         {
             get
