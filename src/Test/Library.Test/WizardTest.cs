@@ -66,6 +66,21 @@ namespace Test.Library
             Assert.AreEqual(this.wizard.Name, "Rudeus");
         }
 
+        //Test que demuestra que no es posible asignar una vida válida.
+        [Test]
+        public void InvalidHealthTest()
+        {
+            this.wizard.Health = -30;
+            Assert.AreEqual(this.wizard.Health, 0);
+        }
+
+        //Test que demuestra que es posible asignar una vida válida.
+        [Test]
+        public void ValidHealthTest()
+        {
+            Assert.AreEqual(this.wizard.Health, 70);
+        }
+
         //Test para verificar que un wizard pueda cambiar su capa.
         [Test]
         public void ChangeCapeTest()
