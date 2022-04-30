@@ -9,18 +9,19 @@ namespace Roleplay
     {
         public Spell spell;
 
-        List<Spell> SpellList = new List<Spell>();
+        List<Spell> spellList = new List<Spell>();
         
         //El mago aprende un nuevo Spell y este se agrega a su libro
         public void AddSpell(Spell aSpell)
         {
-            this.SpellList.Add(aSpell);
+            this.spell = aSpell;
+            this.spellList.Add(aSpell);
         }
 
         //El mago decide que hechizo utilizar.
         public void CastSpell(Spell aSpell)
         {
-            if (SpellList.Contains(aSpell))
+            if (spellList.Contains(aSpell))
             {
                 this.spell = aSpell;
             }
