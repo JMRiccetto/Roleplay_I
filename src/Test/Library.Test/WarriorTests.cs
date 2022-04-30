@@ -6,14 +6,12 @@ namespace Test.Library
 {
 
 
-    public class ExampleTest
+    public class WarriorTest
     {
 
-
-        //Tests Warrior. 
-
-
+        
         // Name tests.
+
 
         // Testea si el nombre es valido.
         [Test]
@@ -45,7 +43,9 @@ namespace Test.Library
             Assert.AreEqual(expected, actual);
         }
 
+
         // Health tests.
+
 
         // Testea la vida del personaje sin items.
         [Test]
@@ -71,7 +71,21 @@ namespace Test.Library
             Assert.AreEqual(expected, actual);
         }
 
+        // Testea el metodo Heal.
+        [Test]
+        public void HealTest()
+        {
+            Warrior warrior = new Warrior("Ragnar");
+            warrior.Health = 20;
+            warrior.Heal();
+            int expected = 100;
+            int actual = warrior.Health;
+            Assert.AreEqual(expected, actual);
+        }
+
+
         // Item tests.
+
 
         // Testea si el item "Sword" es null cuando se crea el personaje.
         [Test]
