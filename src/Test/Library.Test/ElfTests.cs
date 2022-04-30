@@ -4,17 +4,10 @@ using System.Collections.Generic;
 
 namespace Test.Library
 {
-
-
     public class Test
     {
-
-
         //Tests Elf. 
-
-
         // Name tests.
-
         // Testea si el nombre es valido.
         [Test]
         public void validNameTest()
