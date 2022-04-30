@@ -16,7 +16,6 @@ namespace Roleplay
             Fernando.ChangeBoots(BotasMagicas);
             Fernando.ChangeBow(ArcoMagico);
 
-            Console.WriteLine(Fernando.GetString());
 
             Warrior warrior1 = new Warrior("Ragnar");
 
