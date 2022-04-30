@@ -40,33 +40,27 @@ namespace Test.Library
 
         // Health tests.
 
-
-        //Test que demuestra que no es posible asignar una vida válida.
+        // Testea la vida del personaje sin items.
         [Test]
-        public void InvalidHealthTest()
+        public void healthTestWithoutItemsTest()
         {
-            Warrior warrior = new Warrior("Joseph");
-            warrior.Health = -30;
-            Assert.AreEqual(warrior.Health, 0);
+            Elf elf = new Elf("Fernando");
+            int expected = 75;
+            int actual = elf.Health;
+            Assert.AreEqual(expected, actual);
         }
 
-        //Test que demuestra que es posible asignar una vida válida.
+        // Testea la vida del personaje con items.
         [Test]
-        public void ValidHealthTest()
+        public void healthTestWithItemsTest()
         {
-            Warrior warrior = new Warrior("Joseph");
-            Assert.AreEqual(warrior.Health, 100);
-        }
-
-        // Testea el metodo Heal.
-        [Test]
-        public void HealTest()
-        {
-            Warrior warrior = new Warrior("Ragnar");
-            warrior.Health = 20;
-            warrior.Heal();
-            int expected = 100;
-            int actual = warrior.Health;
+            Elf elf = new Elf("Fernando");
+            Bow bow = new Bow(15,0);
+            Boots boots = new Boots(0,15);
+            elf.ChangeBow(bow);
+            elf.ChangeBoots(boots);
+            int expected = 75;
+            int actual = elf.Health;
             Assert.AreEqual(expected, actual);
         }
 
@@ -170,7 +164,7 @@ namespace Test.Library
             Elf elf = new Elf("Fernando");
             Warrior warrior = new Warrior("Bjorn");
             elf.attackWarrior(warrior);
-            int expected = 100;
+            int expected = 90;
             int actual = warrior.Health;
             Assert.AreEqual(expected, actual);
         }
@@ -185,7 +179,7 @@ namespace Test.Library
             Bow bow= new Bow(25,0);
             elf.ChangeBow(bow);
             elf.attackWarrior(warrior);
-            int expected = 100;
+            int expected = 65;
             int actual = warrior.Health;
             Assert.AreEqual(expected, actual);
         }
@@ -226,7 +220,7 @@ namespace Test.Library
         // attackWizard method tests 
 
 
-        // Testea el metodo attackWrrior con ambos personajes sin items.
+        // Testea el metodo attackWizard con ambos personajes sin items.
         [Test]
         
         public void attackWizard1Test()    
@@ -235,12 +229,12 @@ namespace Test.Library
             SpellBook spellBook = new SpellBook();
             Wizard wizard = new Wizard("Merlín", spellBook);
             elf.attackWizard(wizard);
-            int expected = 70;
+            int expected = 60;
             int actual = wizard.Health;
             Assert.AreEqual(expected, actual);
         }
 
-        // Testea el metodo attackWrrior con el personaje que ataca con item de ataque y el que se defiende sin item de defensa.
+        // Testea el metodo attackWizard con el personaje que ataca con item de ataque y el que se defiende sin item de defensa.
         [Test]
 
         public void attackWizard2Test()    
@@ -251,12 +245,12 @@ namespace Test.Library
             Bow bow = new Bow(15,0);
             elf.ChangeBow(bow);
             elf.attackWizard(wizard);
-            int expected = 70;
+            int expected = 45;
             int actual = wizard.Health;
             Assert.AreEqual(expected, actual);
         }
 
-        // Testea el metodo attackWrrior con el personaje que ataca sin item de ataque y el que se defiende con item de defensa.
+        // Testea el metodo attackWizard con el personaje que ataca sin item de ataque y el que se defiende con item de defensa.
         [Test]
 
         public void attackWizard3Test()    
@@ -272,7 +266,7 @@ namespace Test.Library
             Assert.AreEqual(expected, actual);
         }
 
-        // Testea el metodo attackWrrior con el personaje que ataca con item de ataque y el que se defiende con item de defensa.
+        // Testea el metodo attackWizard con el personaje que ataca con item de ataque y el que se defiende con item de defensa.
         [Test]
 
         public void attackWizard4Test()    
@@ -285,7 +279,7 @@ namespace Test.Library
             elf.ChangeBow(bow);
             wizard.ChangeCape(cape);
             elf.attackWizard(wizard);
-            int expected =70;
+            int expected = 50;
             int actual = wizard.Health;
             Assert.AreEqual(expected, actual);
         }
@@ -294,7 +288,7 @@ namespace Test.Library
         // attackElf method tests 
 
 
-        // Testea el metodo attackWrrior con ambos personajes sin items.
+        // Testea el metodo attackElf con ambos personajes sin items.
         [Test]
         
         public void attackElf1()    
@@ -302,12 +296,12 @@ namespace Test.Library
             Elf elf = new Elf("Fernando");
             Elf elf2 = new Elf("Almos");
             elf.attackElf(elf);
-            int expected = 75;
+            int expected = 65;
             int actual = elf.Health;
             Assert.AreEqual(expected, actual);
         }
 
-        // Testea el metodo attackWrrior con el personaje que ataca con item de ataque y el que se defiende sin item de defensa.
+        // Testea el metodo attackElf con el personaje que ataca con item de ataque y el que se defiende sin item de defensa.
         [Test]
 
         public void attackElf2()    
@@ -317,12 +311,12 @@ namespace Test.Library
             Bow bow = new Bow(15,0);
             elf.ChangeBow(bow);
             elf.attackElf(elf);
-            int expected = 75;
+            int expected = 50;
             int actual = elf.Health;
             Assert.AreEqual(expected, actual);
         }
 
-        // Testea el metodo attackWrrior con el personaje que ataca sin item de ataque y el que se defiende con item de defensa.
+        // Testea el metodo attackElf con el personaje que ataca sin item de ataque y el que se defiende con item de defensa.
         [Test]
 
         public void attackElf3()    
@@ -337,7 +331,7 @@ namespace Test.Library
             Assert.AreEqual(expected, actual);
         }
 
-        // Testea el metodo attackWrrior con el personaje que ataca con item de ataque y el que se defiende con item de defensa.
+        // Testea el metodo attackElf con el personaje que ataca con item de ataque y el que se defiende con item de defensa.
         [Test]
 
         public void attackElf4()    
@@ -356,9 +350,6 @@ namespace Test.Library
 
 
         // attackDwarf
-
-
-        // Testea el metodo attackWrrior con ambos personajes sin items.
         [Test]
         
         public void attackDwarf1Test()    
@@ -366,12 +357,12 @@ namespace Test.Library
             Elf elf = new Elf("Fernando");
             Dwarf dwarf = new Dwarf("Grumpy");
             elf.attackDwarf(dwarf);
-            int expected = 110;
+            int expected = 100;
             int actual = dwarf.Health;
             Assert.AreEqual(expected, actual);
         }
 
-        // Testea el metodo attackWrrior con el personaje que ataca con item de ataque y el que se defiende sin item de defensa.
+        // Testea el metodo attackDwarf con el personaje que ataca con item de ataque y el que se defiende sin item de defensa.
         [Test]
 
         public void attackDwarf2Test()    
@@ -381,12 +372,12 @@ namespace Test.Library
             Bow bow = new Bow(15,0);
             elf.ChangeBow(bow);
             elf.attackDwarf(dwarf);
-            int expected = 110;
+            int expected = 85;
             int actual = dwarf.Health;
             Assert.AreEqual(expected, actual);
         }
 
-        // Testea el metodo attackWrrior con el personaje que ataca sin item de ataque y el que se defiende con item de defensa.
+        // Testea el metodo attackDwarf con el personaje que ataca sin item de ataque y el que se defiende con item de defensa.
         [Test]
 
         public void attackDwarf3Test()    
@@ -401,7 +392,7 @@ namespace Test.Library
             Assert.AreEqual(expected, actual);
         }
 
-        // Testea el metodo attackWrrior con el personaje que ataca con item de ataque y el que se defiende con item de defensa.
+        // Testea el metodo attackDwarf con el personaje que ataca con item de ataque y el que se defiende con item de defensa.
         [Test]
 
         public void attackDwarf4Test()    

@@ -168,7 +168,7 @@ namespace Test.Library
         public void AttackElfWithValidArmor()
         {
             this.wizard.attackElf(this.elf);
-            int expectedHealth = 50;
+            int expectedHealth = 45;
             Assert.AreEqual(expectedHealth, elf.Health);
         }
 
@@ -178,7 +178,7 @@ namespace Test.Library
         {
             this.elf.RemoveBoots();
             this.wizard.attackElf(this.elf);
-            int expectedHealth = 35;
+            int expectedHealth = 30;
             Assert.AreEqual(expectedHealth, elf.Health);
         }
     }

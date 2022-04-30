@@ -69,7 +69,7 @@ namespace Roleplay
         {
             this.Boots = boots;
         }
-
+        //remover item
         public void RemoveBoots()
         {
             this.Boots = null;
@@ -106,6 +106,10 @@ namespace Roleplay
                 {                  
                     warrior.Health -= (this.GetAttack() - warrior.Breastplate.DefenseValue);                    
                 }
+            }
+            else
+            {
+                warrior.Health -= this.GetAttack();
             }    
         }
 
@@ -117,7 +121,11 @@ namespace Roleplay
                 {                  
                     wizard.Health -= (this.GetAttack() - wizard.Cape.DefenseValue);                    
                 }
-            }    
+            }
+            else
+            {
+                wizard.Health -= this.GetAttack();
+            } 
         }
 
         public void attackElf(Elf elf)
@@ -128,7 +136,11 @@ namespace Roleplay
                 {                  
                     elf.Health -= (this.GetAttack() - elf.Boots.DefenseValue);                    
                 }
-            }    
+            }
+            else
+            {
+                elf.Health -= this.GetAttack();
+            } 
         }
 
          public void attackDwarf(Dwarf dwarf)
@@ -139,7 +151,11 @@ namespace Roleplay
                 {                  
                     dwarf.Health -= (this.GetAttack() - dwarf.Shield.DefenseValue);                    
                 }
-            }    
+            }
+            else
+            {
+                dwarf.Health -= this.GetAttack();
+            }
         }
     }
 }
