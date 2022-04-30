@@ -44,10 +44,33 @@ namespace Roleplay
             }
         }
 
-        public Spell(string aName, int aAttackValue)
+        private int defenseValue;
+
+        public int DefenseValue
+        {
+            get
+            {
+                return this.defenseValue;
+            }
+
+            set
+            {
+                if (value > 0)
+                {
+                    this.defenseValue = value;
+                }
+                else
+                {
+                    this.defenseValue = 0;
+                }
+            }
+        }
+        
+        public Spell(string aName, int aAttackValue, int aDefenseValue)
         {
             this.name = aName;
             this.attackValue = aAttackValue;
+            this.defenseValue = aDefenseValue;
         }
     }
 }
