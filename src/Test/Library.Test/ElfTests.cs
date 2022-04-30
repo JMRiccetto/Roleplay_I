@@ -168,11 +168,11 @@ namespace Test.Library
         
         public void attackWarrior1Test()    
         {
-            Warrior warrior1 = new Warrior("Ragnar");
-            Warrior warrior2 = new Warrior("Bjorn");
-            warrior1.attackWarrior(warrior2);
-            int expected = 85;
-            int actual = warrior2.Health;
+            Elf elf = new Elf("Fernando");
+            Warrior warrior = new Warrior("Bjorn");
+            elf.attackWarrior(warrior);
+            int expected = 100;
+            int actual = warrior.Health;
             Assert.AreEqual(expected, actual);
         }
 
@@ -181,13 +181,13 @@ namespace Test.Library
 
         public void attackWarrior2Test()    
         {
-            Warrior warrior1 = new Warrior("Ragnar");
-            Warrior warrior2 = new Warrior("Bjorn");
-            Sword sword = new Sword(20,0);
-            warrior1.ChangeSword(sword);
-            warrior1.attackWarrior(warrior2);
-            int expected = 65;
-            int actual = warrior2.Health;
+            Elf elf = new Elf("Fernando");
+            Warrior warrior = new Warrior("Bjorn");
+            Bow bow= new Bow(25,0);
+            elf.ChangeBow(bow);
+            elf.attackWarrior(warrior);
+            int expected = 100;
+            int actual = warrior.Health;
             Assert.AreEqual(expected, actual);
         }
 
@@ -196,13 +196,13 @@ namespace Test.Library
 
         public void attackWarrior3Test()    
         {
-            Warrior warrior1 = new Warrior("Ragnar");
-            Warrior warrior2 = new Warrior("Bjorn");
+            Elf elf = new Elf("Fernando");
+            Warrior warrior = new Warrior("Bjorn");
             Breastplate breastplate = new Breastplate(0,20);
-            warrior2.ChangeBreastplate(breastplate);
-            warrior1.attackWarrior(warrior2);
+            warrior.ChangeBreastplate(breastplate);
+            elf.attackWarrior(warrior);
             int expected = 100;
-            int actual = warrior2.Health;
+            int actual = warrior.Health;
             Assert.AreEqual(expected, actual);
         }
 
@@ -211,15 +211,15 @@ namespace Test.Library
 
         public void attackWarrior4Test()    
         {
-            Warrior warrior1 = new Warrior("Ragnar");
-            Warrior warrior2 = new Warrior("Bjorn");
-            Sword sword = new Sword(25,0);
+            Elf elf = new Elf("Fernando");
+            Warrior warrior = new Warrior("Bjorn");
+            Bow bow= new Bow(25,0);
             Breastplate breastplate = new Breastplate(0,20);
-            warrior1.ChangeSword(sword);
-            warrior2.ChangeBreastplate(breastplate);
-            warrior1.attackWarrior(warrior2);
-            int expected = 80;
-            int actual = warrior2.Health;
+            elf.ChangeBow(bow);
+            warrior.ChangeBreastplate(breastplate);
+            elf.attackWarrior(warrior);
+            int expected = 85;
+            int actual = warrior.Health;
             Assert.AreEqual(expected, actual);
         }
 
@@ -234,7 +234,7 @@ namespace Test.Library
         {
             Elf elf = new Elf("Fernando");
             SpellBook spellBook = new SpellBook();
-            Wizard wizard = new Wizard("Mario", spellBook);
+            Wizard wizard = new Wizard("Merlín", spellBook);
             elf.attackWizard(wizard);
             int expected = 70;
             int actual = wizard.Health;
@@ -248,7 +248,7 @@ namespace Test.Library
         {
             Elf elf = new Elf("Fernando");           
             SpellBook spellBook = new SpellBook();
-            Wizard wizard = new Wizard("Mario", spellBook);
+            Wizard wizard = new Wizard("Merlín", spellBook);
             Bow bow = new Bow(15,0);
             elf.ChangeBow(bow);
             elf.attackWizard(wizard);
@@ -264,7 +264,7 @@ namespace Test.Library
         {
             Elf elf = new Elf("Fernando"); 
             SpellBook spellBook = new SpellBook();
-            Wizard wizard = new Wizard("Mario", spellBook);
+            Wizard wizard = new Wizard("Merlín", spellBook);
             Cape cape = new Cape(0,15);
             wizard.ChangeCape(cape);
             elf.attackWizard(wizard);
@@ -280,7 +280,7 @@ namespace Test.Library
         {
             Elf elf = new Elf("Fernando");
             SpellBook spellBook = new SpellBook();
-            Wizard wizard = new Wizard("Mario", spellBook);
+            Wizard wizard = new Wizard("Merlín", spellBook);
             Bow bow = new Bow(25,0);
             Cape cape = new Cape(0,15);
             elf.ChangeBow(bow);
@@ -365,7 +365,7 @@ namespace Test.Library
         public void attackDwarf1Test()    
         {
             Elf elf = new Elf("Fernando");
-            Dwarf dwarf = new Dwarf("Frodo");
+            Dwarf dwarf = new Dwarf("Grumpy");
             elf.attackDwarf(dwarf);
             int expected = 110;
             int actual = dwarf.Health;
@@ -378,7 +378,7 @@ namespace Test.Library
         public void attackDwarf2Test()    
         {
             Elf elf = new Elf("Fernando");
-            Dwarf dwarf = new Dwarf("Frodo");
+            Dwarf dwarf = new Dwarf("Grumpy");
             Bow bow = new Bow(15,0);
             elf.ChangeBow(bow);
             elf.attackDwarf(dwarf);
@@ -393,7 +393,7 @@ namespace Test.Library
         public void attackDwarf3Test()    
         {
             Elf elf = new Elf("Fernando");
-            Dwarf dwarf = new Dwarf("Frodo");
+            Dwarf dwarf = new Dwarf("Grumpy");
             Shield shield = new Shield(0,15);
             dwarf.ChangeShield(shield);
             elf.attackDwarf(dwarf);
@@ -408,7 +408,7 @@ namespace Test.Library
         public void attackDwarf4Test()    
         {
             Elf elf = new Elf("Fernando");
-            Dwarf dwarf = new Dwarf("Frodo");
+            Dwarf dwarf = new Dwarf("Grumpy");
             Bow bow = new Bow(25,0);
             Shield shield = new Shield(0,15);
             elf.ChangeBow(bow);
