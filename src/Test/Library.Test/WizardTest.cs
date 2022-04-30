@@ -181,5 +181,14 @@ namespace Test.Library
             int expectedHealth = 30;
             Assert.AreEqual(expectedHealth, elf.Health);
         }
+
+        //Test que demuestra que un wizard puede curarse correctamente.
+        [Test]
+        public void HealTest()
+        {
+            this.wizard.Health = 0;
+            this.wizard.Heal();
+            Assert.AreEqual(this.wizard.Health, 70);
+        }
     }
 }
